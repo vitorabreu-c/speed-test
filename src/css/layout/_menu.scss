@@ -1,0 +1,25 @@
+
+
+.navigation{
+    @include size(100%, auto);
+    margin: 50px 0 0 0;
+    padding: 0px 0 0 20px;
+
+    &-item{
+        display: block;
+    }
+
+    &-link{
+        @include size(100%,40px);
+        display: block;
+        padding-top: 10px;
+        font-size: 15px;
+        color: $color-base;
+        font-family: "Univers LT Std 55";
+
+        &:hover,&:active,&:focus{
+            color: $color-base-darker;
+            text-decoration: none;
+        }
+    }
+}

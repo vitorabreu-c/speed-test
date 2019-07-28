@@ -1,0 +1,328 @@
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+///////// SASS - Mixins
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+///////// Estética
+//////////////////////////////////////////////////////
+
+/// Aplicar sombra ao texto
+@mixin text-shadow($string:0 1px 3px rgba(0, 0, 0, 0.25)){
+  text-shadow: $string;
+}
+
+/// Aplicar sombra fora no elemento
+@mixin box-shadow ($string) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+
+/// Aplicar sombra fora do elemento
+@mixin drop-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:	  $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow:		  $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+
+/// Aplicar sombra dentro do elemento
+@mixin inner-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:    inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow:         inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+
+/// Definição de cada borda
+@mixin border-radiuses ($topright: 0, $topleft: 0, $bottomleft: 0, $bottomright: 0) {
+  -webkit-border-top-right-radius:    $topright;
+  -webkit-border-bottom-right-radius: $bottomright;
+  -webkit-border-bottom-left-radius:  $bottomleft;
+  -webkit-border-top-left-radius:     $topleft;
+
+  -moz-border-radius-topright:        $topright;
+  -moz-border-radius-bottomright:     $bottomright;
+  -moz-border-radius-bottomleft:      $bottomleft;
+  -moz-border-radius-topleft:         $topleft;
+
+  border-top-right-radius:            $topright;
+  border-bottom-right-radius:         $bottomright;
+  border-bottom-left-radius:          $bottomleft;
+  border-top-left-radius:             $topleft;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+/// Definição de todas as bordas
+@mixin border-radius ($r: 5px) {
+  -webkit-border-radius: $r;
+  -moz-border-radius:    $r;
+  border-radius:         $r;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+
+/// Definição opacidade do elemento
+@mixin opacity ($opacity: 0.5) {
+  -webkit-opacity: 	$opacity;
+  -moz-opacity:     $opacity;
+  opacity: 		    $opacity;
+}
+
+/// Gradiente vertical
+@mixin gradient ($startColor: #eee,$endColor: white) {
+  background-color: $startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background: -webkit-linear-gradient(top, $startColor, $endColor);
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+/// Gradiente horizontal
+@mixin horizontal-gradient ($startColor: #eee, $endColor: white) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+  background-image: -moz-linear-gradient(left, $startColor, $endColor);
+  background-image: -ms-linear-gradient(left, $startColor, $endColor);
+  background-image: -o-linear-gradient(left, $startColor, $endColor);
+}
+
+@mixin radial-gradient($startColor: #eee,$midColor: #fefefe ,$endColor: white){
+  background: $startColor; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient($startColor,$midColor,$endColor); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient($startColor,$midColor,$endColor); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient($startColor,$midColor,$endColor); /* For Firefox 3.6 to 15 */
+  background: radial-gradient($startColor,$midColor,$endColor); /* Standard syntax */
+}
+
+//////////////////////////////////////////////////////
+///////// Blocos de transformações
+//////////////////////////////////////////////////////
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+    -o-transform: $transforms;
+   -ms-transform: $transforms;
+-webkit-transform: $transforms;
+       transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate($deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+// Mudar posicionamento do elemento em 3D
+@mixin set3D($x:-50%,$y:-50%,$z:0){
+  @include transform(translate3d($x,$y,$z));
+}
+// Perspectiva
+@mixin setPerspective($value: 100){
+  -webkit-perspective: 	$value;
+  -moz-perspective: 	$value;
+  -ms-perspective: 	    $value;
+  perspective: 		    $value;
+}
+// Posicionamento
+@mixin transform-origin ($x:center, $y:center) {
+  -webkit-transform-origin: $x $y;
+  -moz-transform-origin:    $x $y;
+  -ms-transform-origin:     $x $y;
+  -o-transform-origin:      $x $y;
+}
+
+/// Helper para validar entradas no setPosition
+@function is-valid-length($value) {
+  @return (type-of($value) == "number" and not unitless($value))
+       or (index(auto initial inherit 0, $value) != false);
+}
+
+@mixin setPosition($position,$args:()){
+  $offsets: top right bottom left;
+  position: $position;
+
+  @each $offset in $offsets {
+    $index: index($args, $offset);
+
+    @if $index {
+      @if $index == length($args) {
+        #{$offset}: 0;
+      }
+      @else {
+        $next: nth($args, $index + 1);
+        @if is-valid-length($next) {
+          #{$offset}: $next;
+        }
+        @else if index($offsets, $next) {
+          #{$offset}: 0;
+        }
+        @else {
+          @warn "Invalid value `#{$next}` for offset `#{$offset}`.";
+        }
+      }
+    }
+  }
+
+}
+@mixin setAbsolute($args: ()) {
+  @include setPosition(absolute, $args);
+}
+@mixin setFixed($args: ()) {
+  @include setPosition(fixed, $args);
+}
+@mixin setRelative($args: ()) {
+  @include setPosition(relative, $args);
+}
+
+
+//////////////////////////////////////////////////////
+///////// Facilitators
+//////////////////////////////////////////////////////
+
+/// Tipo de renderização do elemento
+@mixin box-sizing ($type: border-box) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing:    $type;
+  box-sizing:         $type;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Margins & Paddings
+@mixin yPadding($t,$b:$t){
+  padding-top:$t;
+  padding-bottom:$b;
+}
+@mixin yMargin($t,$b:$t){
+  margin-top:$t;
+  margin-bottom:$b;
+}
+
+@mixin setTransition($property,$duration,$function){
+  -webkit-transition:   $property $duration $function;
+  -moz-transition:      $property $duration $function;
+  -o-transition:        $property $duration $function;
+  -ms-transition:       $property $duration $function;
+  transition:           $property $duration $function;
+}
+
+@mixin animate($string){
+  animation: $string;
+  -moz-animation: $string; /* Firefox */
+  -webkit-animation: $string; /* Safari and Chrome */
+  -o-animation: $string; /* Opera */
+}
+
+//////////////////////////////////////////////////////
+///////// Background
+//////////////////////////////////////////////////////
+
+@mixin setBgPos($x:center,$y:$x){background-position:$x $y;background-repeat:no-repeat;}
+@mixin setBgImg($url){background-image: url($url);}
+@mixin setBgSize($x:auto,$y:auto){background-size: $x $y;}
+
+//////////////////////////////////////////
+//////// Forms & Texts
+//////////////////////////////////////////
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin setPlaceholder($color: #000,$opacity:1){
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color;
+    opacity: $opacity;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $color;
+    opacity: $opacity;
+  }
+}
+
+
+
+
+//////////////////////////////////////////////////////
+///////// SASS - Placeholders
+//////////////////////////////////////////////////////
+
+/// Alinhamentos de textos
+%text-center{text-align: center;}
+%text-left{text-align: left;}
+%text-right{text-align: right;}
+%text-justify{text-align: justify;}
+/// Floats
+%pull-left{float:left;}
+%pull-right{float:right;}
+
+// Displays dos elementos
+%center-block{display: block;margin-left: auto;margin-right: auto;}
+%setInlineBlock {display: inline-block;}
+
+%setBgCover{background-size: cover;}
+%setBgContain{background-size: contain;}
+
+%transDefault{
+  @include setTransition(all,300ms,ease-out);
+}
+%setCircle{
+  @include border-radius(200%);
+}
+
+%zero-P-M{
+  margin:0;padding:0;
+}
+
+%absoluteCenter{
+  // @include translate();
+  @include setAbsolute(top 50% left 50%);
+}
+
+%setBgSquare{
+  @include setBgPos();
+  // @include setBgImg("#{$svgPath}square.svg");
+  @include setBgSize(100%,100%);
+}

@@ -1,0 +1,87 @@
+//Colors
+$color-txt: #333333;
+
+//App Colors
+$color-base: #8bb2b9;
+$color-base-darker: #719f9d;
+
+$color-secondary: #042b48;
+
+
+$light-grey: #c7ccbd;
+$grey: #d6d6d6;
+
+
+h1{
+    font-size: 15px;
+    position: absolute;
+    top:30%;
+    left: 30%;
+    color: red;
+}
+
+//Font
+@mixin base-text{
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: $color-txt;
+}
+
+//Sidebar & Main Padding
+
+$content-size : 250px;
+
+body{
+    color: $color-txt;
+    @include animate(fadein 1s);
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+////////////// Z-Index
+
+$zindex-default:        0000;
+$zindex-header:         1000;
+$zindex-footer:         1000;
+$zindex-fab:            1010;
+$zindex-kpi-img:        9;
+$zindex-eficiencia:     2010;
+$zindex-table-loader: 1030 !default;
+
+//Media Queries
+@include media-breakpoint-down(xs) {}
+@include media-breakpoint-down(sm) {}
+@include media-breakpoint-down(md) {}
+@include media-breakpoint-down(lg) {}
+// No media query necessary for xl breakpoint as it has no upper bound on its width

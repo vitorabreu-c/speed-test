@@ -1,0 +1,40 @@
+.chart{
+    margin: 0 20px;
+}
+
+#grid-containter{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    padding: 40px 0 40px;    
+}
+
+.card{
+
+    &-grid{
+        @include size(250px,250px);
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+
+        & .front, & .back{
+            padding: 10px;
+            text-align: center;
+            border: 1px #333 solid;
+            cursor: pointer;
+        }
+        
+        & .front{
+            background-color: #eee;
+        }
+        
+        & .back{
+            background-color: #333;
+            color: #fff;
+        }
+        
+    }
+}
+
+.qv-object .qv-object-title{position: initial !important}
+

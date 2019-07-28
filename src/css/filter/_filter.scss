@@ -1,0 +1,12 @@
+
+
+#QVFilter{
+    @include size(100%,600px);
+    margin-top: 20px;
+}
+
+.qv-collapsed-listbox .title-wrapper .title{
+    color: $color-txt;
+    font-weight: normal;
+    padding: 6px 0 0 10px;
+}
