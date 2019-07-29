@@ -23,85 +23,63 @@
 
     <main class="content">
 
-        <header>
-            <h1>Speed Test</h1>
-            <h4>Seus Testes</h4>
-        </header>
-        
         <section class="speedTest">
 
-            <input placeholder="Nomeie seu teste">
+            <header>
+                <h1>Speed Test</h1>
+            </header>
+
+            <input class="speedName" id="name-test" placeholder="Nomeie seu teste">
 
             <div class="speedBox">
 
                 <div class="speedBox-item">
 
-                    <span class="number">100</span>
-                    <span class="mb">mbps</span>
+                    <span class="number" id="upload-test">0</span>
+                    <span class="mb">Mbps</span>
                     <span class="type">upload</span>
                 </div>
 
                 <div class="speedBox-item">
 
-                    <span class="number">100</span>
-                    <span class="mb">mbps</span>
-                    <span class="type">upload</span>
+                    <span class="number" id="download-test">0</span>
+                    <span class="mb">Mbps</span>
+                    <span class="type">download</span>
                 </div>
                 
                 <div class="speedBox-item">
 
-                    <span class="number">100</span>
-                    <span class="mb">mbps</span>
-                    <span class="type">upload</span>
+                    <span class="number" id="latency-test">0</span>
+                    <span class="mb">ms</span>
+                    <span class="type">latência</span>
                 </div>
             </div>
 
             <div class="btnGroup">
 
-                <button class="btn btn-newtest"></button>
+                <button id="new-test" class="btn btn-newTest">Novo teste</button>
                 <hr>
-                <button class="btn btn-cancelTest"></button>
-                <button class="btn btn-saveTest"></button>
+                <button id="cancel-test" class="btn btn-cancelTest">Cancelar</button>
+                <button id="save-test" class="btn btn-saveTest">Salvar</button>
             </div>
 
         </section>
 
         <section class="speedList">
 
+            <header>
+                <h4>Seus Testes</h4>
+            </header>
+
             <div class="listBox">
-
-                <div class="listBox-msg">
-                    <i class="fa"></i>
-                    <span>Não há nenhum item salvo na lista</span>
-                </div>
-
-                <div class="listBox-item">
-                    <div>28/07/2019</div>
-                    <div>100 mbps download</div>
-                    <div>100 mbps upload</div>
-                    <div>100 mbps latencia</div>
-                </div>
-
-                <div class="listBox-item">
-                    <div>28/07/2019</div>
-                    <div>100 mbps download</div>
-                    <div>100 mbps upload</div>
-                    <div>100 mbps latencia</div>
-                </div>
-
-                <div class="listBox-item">
-                    <div>28/07/2019</div>
-                    <div>100 mbps download</div>
-                    <div>100 mbps upload</div>
-                    <div>100 mbps latencia</div>
-                </div>
 
             </div>
 
         </section>
     </main>
     
-    <script src="main.js"></script>    
+    <script src="js/main.js"></script>    
+    <script src="js/storage.js"></script>    
 </body>
 
 </html>

@@ -326,3 +326,10 @@
   // @include setBgImg("#{$svgPath}square.svg");
   @include setBgSize(100%,100%);
 }
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

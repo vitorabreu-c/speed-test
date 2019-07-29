@@ -1,0 +1,59 @@
+
+.listBox{
+    @include size(100%,auto);
+    @include border-radius(5px);
+    position: relative;
+    padding: 5px;
+    background-color: #f0f5ff;
+
+    @include media-breakpoint-up(md) {
+        margin: 30px 0;
+        height: 440px;
+        overflow-y: scroll;
+    }   
+
+
+    &-item{
+        @include size(100%,auto);
+        @include border-radius(1px);
+        display: inline-block;
+        padding: 5px 3px 5px 5px;
+        margin: 4px 0;
+        background-color: white;
+        border-left: 2px solid $color-secondary;       
+
+        @include media-breakpoint-up(md) {
+
+        }
+        
+        & div{
+            font-size: 12px;
+            
+        }
+
+        & .dscp{
+            width: 50%;
+            float: left;
+            font-weight: bold;
+        }
+
+        & .test{
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &-msg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 310px;
+
+        & i{
+            margin-right: 5px;
+        }
+    }
+}

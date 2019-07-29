@@ -1,5 +1,6 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 
 //Structure
@@ -8,13 +9,11 @@
 
 //Layout
 @import "layout/_header";
-@import "layout/_aside";
 @import "layout/_main";
-@import "layout/_menu";
 
 
-//Charts
-@import "charts/_flipcard";
+//Components
+@import "components/_speedBox";
+@import "components/_listBox";
+@import "components/_btn";
 
-//Filter
-@import "filter/_filter";

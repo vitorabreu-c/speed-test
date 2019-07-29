@@ -2,23 +2,15 @@
 $color-txt: #333333;
 
 //App Colors
-$color-base: #8bb2b9;
-$color-base-darker: #719f9d;
+$color-base: #7c99d6;
 
-$color-secondary: #042b48;
+$color-secondary: #6390f8;
+$color-success: #88b737;
+$color-danger: #843a4e;
 
 
 $light-grey: #c7ccbd;
 $grey: #d6d6d6;
-
-
-h1{
-    font-size: 15px;
-    position: absolute;
-    top:30%;
-    left: 30%;
-    color: red;
-}
 
 //Font
 @mixin base-text{
@@ -32,7 +24,8 @@ h1{
 $content-size : 250px;
 
 body{
-    color: $color-txt;
+    color: $color-base;
+    font-family: 'Montserrat', sans-serif;
     @include animate(fadein 1s);
 }
 
@@ -80,8 +73,8 @@ $zindex-eficiencia:     2010;
 $zindex-table-loader: 1030 !default;
 
 //Media Queries
-@include media-breakpoint-down(xs) {}
-@include media-breakpoint-down(sm) {}
-@include media-breakpoint-down(md) {}
-@include media-breakpoint-down(lg) {}
+@include media-breakpoint-down(xs) {} //576
+@include media-breakpoint-down(sm) {} //768
+@include media-breakpoint-down(md) {} //992
+@include media-breakpoint-down(lg) {} //1200
 // No media query necessary for xl breakpoint as it has no upper bound on its width
