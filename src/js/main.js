@@ -32,7 +32,7 @@ function geraNumeros(){// Gera os números aleatoriamente
 			}
 		});
 	});
-
+}
 
 function cancelaTeste(){// Zera o teste
 	
@@ -60,11 +60,11 @@ function verificaNome(){// Verifica se teste tem nome ou valores medidos
 	}
 }
 
-function verificaLista(){// verifica se a lista está vazia
+function verificaLista(){ // verifica se a lista está vazia
 	
 	if(!localStorage.recortTest){
 		
-		$(".listBox").append("<div class='listBox-msg'><i class='fa fa-exclamation-triangle'></i><span>Não há nenhum item salvo na lista</span></div>")
+		$(".listBox").append("<div class='listBox-msg'><i class='fa fa-exclamation-triangle'></i><span>Não há nenhum item salvo na lista</span></div>");
 
 		
 	} else {
