@@ -1,14 +1,17 @@
-
+var nameTest = $("#name-test");
 var uploadTest = $("#upload-test");
 var downloadTest = $("#download-test");
 var latencyTest = $("#latency-test");
 
 $(document).ready(function(){
-	verificaLista();
+	
+	verificaLista();// Retira Mensagem
+	
 	$("#new-test").click(geraNumeros);
+	
 	$("#cancel-test").click(cancelaTeste);
-	$("#save-test").click(verificaNome);
 
+	$("#save-test").click(verificaNome);
 });
 
 
@@ -17,51 +20,27 @@ function geraNumeros(){// Gera os números aleatoriamente
 	uploadTest.text(Math.round(Math.random() * (100 - 90) + 90));
 	downloadTest.text(Math.round(Math.random() * (100 - 90) + 90));
 	latencyTest.text(Math.round(Math.random() * (100 - 90) + 90));
-}
+
+	$(".number").each(function () {
+		$(this).prop('Counter',0).animate({
+			Counter: $(this).text()
+		}, {
+			duration: 4000,
+			easing: 'swing',
+			step: function (now) {
+				$(this).text(Math.ceil(now));
+			}
+		});
+	});
+
 
 function cancelaTeste(){// Zera o teste
 	
+	nameTest.val("");
 	uploadTest.text("0");
 	downloadTest.text("0");
 	latencyTest.text("0");
 }
-
-
-function insereTeste(currentDateTest){// Cria os itens da lista do teste
-	
-	var dateTest = new Date();
-	var currentDateTest = dateTest.getDate() + "/" + dateTest.getMonth() + "/" + dateTest.getFullYear();
-	// var idTest = dateTest.getDate() + dateTest.getMonth() + dateTest.getFullYear() + dateTest.getMilliseconds();
-	var nameTestVal = $("#name-test").val();
-	var uploadTestVal = $("#upload-test").text();
-	var downloadTestVal = $("#download-test").text();
-	var latencyTestVal = $("#latency-test").text();
-
-	// Criando itens da lista
-	var listItem = $("<div class='listBox-item'>");
-	var listItemName = $("<div class='dscp' id='name'>").text(nameTestVal);
-	var listItemDate = $("<div class='dscp text-right' id='date'>").text(currentDateTest);
-	var listItemInfo = $("<div class='test'>");
-	var listItemInfoUpload = $("<div class='info' id='upload'>").text(uploadTestVal + " Mbps Upload");
-	var listItemInfoDownload = $("<div class='info' id='download'>").text(downloadTestVal + " Mbps Download");
-	var listItemInfoLatency = $("<div class='info' id='latency'>").text(latencyTestVal + " ms Latência");
-
-	//add valores do test na lista
-	listItemInfo.append(listItemInfoUpload);
-	listItemInfo.append(listItemInfoDownload);
-	listItemInfo.append(listItemInfoLatency);
-
-	//lista montada
-	
-	listItem.append(listItemName);
-	listItem.append(listItemDate);
-	listItem.append(listItemInfo);	
-	
-
-	var listaTestes = $(".listBox");
-	listaTestes.append(listItem);	
-}
-
 
 function verificaNome(){// Verifica se teste tem nome ou valores medidos
 			
@@ -75,15 +54,15 @@ function verificaNome(){// Verifica se teste tem nome ou valores medidos
 
 	} else {
 
-		insereTeste();
+		saveTest();
 		verificaLista();
-		saveSettings();
+
 	}
 }
 
 function verificaLista(){// verifica se a lista está vazia
 	
-	if($.trim($(".listBox").html())==''){
+	if(!localStorage.recortTest){
 		
 		$(".listBox").append("<div class='listBox-msg'><i class='fa fa-exclamation-triangle'></i><span>Não há nenhum item salvo na lista</span></div>")
 
